@@ -1,6 +1,5 @@
 import { assert } from "console";
 import  { Request, Response } from "express";
-import { stringify } from "querystring";
 import cryptoPriceModel from "../models/cryptoPriceModel";
 
 /**
@@ -17,17 +16,15 @@ const fetchAggregatePrices = async (req: Request, res: Response) => {
     }
     console.log("fetching aggregate prices");
     try { 
-        await cryptoPriceModel.find().distinct("Name", {"timestamp": -1}, (err, result) => { 
+        cryptoPriceModel.find().sort({ $natural: -1 }).limit(100).exec(function (err, result) {
             if (err) {
                 res.status(403).send(err);
                 return;
             }
-            else {
-                assert(Array.isArray(result));
-                console.log(result);
-                res.status(200).send(result);
-            }
-        }).clone();
+            console.log("Now displaying the latest crypto data");
+            assert(Array.isArray(result));
+            res.status(200).send(result);
+        })
     }
     catch (err) {
         res.status(500).send(err);

@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import apiRouter from "./routes/latestAggregate";
 
 const PORT = process.env.PORT || 5000;
-const mongoURI = `mongodb://asif23:sayan@localhost:27017/cryptoDataDB`;
+const mongoURI = `mongodb+srv://cryptoDB:sayan@cluster0.dve8ojg.mongodb.net/cryptoDB`;
 
 
 mongoose.connect(mongoURI);
