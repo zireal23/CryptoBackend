@@ -16,8 +16,8 @@ const cryptoPriceSchema = new mongoose.Schema({
   RealPrice: { type: Number, required: true },
   ArithmeticAggregatePrice: { type: Number},
   GeometricAggregatePrice: { type: Number},
-  HarmonicAggregatePrice: { type: Number},
-  timeStamp: { type: Date, required: true },
+  HarmonicAggregatePrice: { type: Number },
+  PriceAt: {type: Number},
 },
 {collection: "cryptoPricesTimeSeries"}
 );

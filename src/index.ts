@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import apiRouter from "./routes/latestAggregate";
+import streamCoinData from "./controllers/grpcController";
 
 const PORT = process.env.PORT || 5000;
 const mongoURI = `mongodb+srv://cryptoDB:sayan@cluster0.dve8ojg.mongodb.net/cryptoDB`;
@@ -35,3 +36,4 @@ app.get("/", function (req, res) {
 });
 
 app.use("/latestAggregate", apiRouter);
+streamCoinData();

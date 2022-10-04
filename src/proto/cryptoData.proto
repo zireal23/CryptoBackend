@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cryptoData;
+package cryptoDatapkg;
 
 message Coin{
     string coinName = 1;
@@ -8,14 +8,14 @@ message Coin{
 
 message CoinData{
     string name = 1;
-    string timeStamp = 2;
-    string currentPrice = 3;
-    string arithmeticAggregate = 4;
-    string geometricAggregate = 5;
-    string harmonicAggregate = 6;
+    int64 priceAt = 2;
+    float currentPrice = 3;
+    float arithmeticAggregate = 4;
+    float geometricAggregate = 5;
+    float harmonicAggregate = 6;
 }
 
 
 service FetchCryptoCoinData{
-    rpc getCoinData(Coin) returns (stream CoinData){};
+    rpc GetCoinData(Coin) returns (stream CoinData){};
 }
