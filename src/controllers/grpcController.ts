@@ -3,12 +3,11 @@ import * as grpc from "@grpc/grpc-js";
 import * as protoLoader from "@grpc/proto-loader";
 import { ProtoGrpcType } from "../proto/cryptoData";
 import { FetchCryptoCoinDataHandlers } from "../proto/cryptoDatapkg/FetchCryptoCoinData";
-import { Coin } from "../proto/cryptoDatapkg/Coin";
 import { CoinData } from "../proto/cryptoDatapkg/CoinData";
 import cryptoPriceModel from "../models/cryptoPriceModel";
 
 const streamCoinData = () => {
-  const PORT = process.env.PORT || 8082;
+  const PORT = process.env.GRPCPORT || 8082;
   const PROTO_FILE = "../proto/cryptoData.proto";
 
   const packageDef = protoLoader.loadSync(path.resolve(__dirname, PROTO_FILE));
