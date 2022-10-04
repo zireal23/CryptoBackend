@@ -5,11 +5,12 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import apiRouter from "./routes/latestAggregate";
 import streamCoinData from "./controllers/grpcController";
+import "dotenv/config";
 
 const PORT = process.env.PORT || 5000;
-const mongoURI = `mongodb+srv://cryptoDB:sayan@cluster0.dve8ojg.mongodb.net/cryptoDB`;
+const mongoURI = process.env.MONGODB_URI;
 
-
+if(mongoURI)
 mongoose.connect(mongoURI);
 
 mongoose.connection.on("open", function () {
