@@ -67,7 +67,7 @@ const streamCoinData = () => {
                 call.end();
               }
             });
-        }, 10000);
+        }, 1000);
       },
     } as FetchCryptoCoinDataHandlers);
     return server;
