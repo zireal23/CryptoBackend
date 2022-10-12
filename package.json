@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
     "build": "rimraf ./build && tsc && cp ./src/proto/cryptoData.proto ./build/proto",
-    "start": "npm run build && node build/index.js",
+    "start": "node build/index.js",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
