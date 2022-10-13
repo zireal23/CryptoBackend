@@ -41,7 +41,7 @@ const fetchAggregatePricesForCoin = async (req: Request, res: Response) => {
     console.log("fetching aggregate prices for coin");
     try { 
         // find the distinct coin names in the database sorted by time
-        const result = await cryptoPriceModel.findOne({ ID: String(coinSymbol).toLowerCase() });
+        const result = await cryptoPriceModel.findOne({ ID: String(coinSymbol).toLowerCase() }).sort({_id:-1}).limit(1).exec();
         if (!result) { 
             res.status(404).send("Coin not found");
         }

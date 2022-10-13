@@ -10,3 +10,7 @@ ENV GRPCPORT 8082
 RUN chown -R 1000:1000 /app/build
 USER 1000
 CMD node build/index.js 
+# FROM envoyproxy/envoy:v1.23-latest
+# COPY ./envoy.yaml /etc/envoy/envoy.yaml
+# EXPOSE 8080
+# CMD /usr/local/bin/envoy -c /etc/envoy/envoy.yaml
